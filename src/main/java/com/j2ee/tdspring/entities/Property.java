@@ -1,12 +1,11 @@
 package com.j2ee.tdspring.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import com.j2ee.tdspring.enums.PropertyType;
+import lombok.*;
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
+@Table(name = "system_properties")
 @Getter
 @Setter
 public class Property {
@@ -20,9 +19,4 @@ public class Property {
 
     @Column
     PropertyType type;
-}
-
-
-enum PropertyType {
-    STRING, INTEGER, DOUBLE, DATE
 }

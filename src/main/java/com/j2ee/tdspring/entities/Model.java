@@ -1,16 +1,11 @@
 package com.j2ee.tdspring.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "system_models")
 @Getter
 @Setter
 public class Model {
@@ -19,11 +14,12 @@ public class Model {
     @Column
     Integer id;
 
-    @Column
+    @Column(unique = true)
     String name;
 
     @Column
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "model_id")
     public List<Property> properties;
 
     public void addProperties(List<Property> properties) {
