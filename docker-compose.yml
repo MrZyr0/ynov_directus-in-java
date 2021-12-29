@@ -9,5 +9,7 @@ services:
       MYSQL_DATABASE: cours
       MYSQL_USER: maxence
       MYSQL_PASSWORD: maxence
-    ports:
-      - "3306:3306"
+#    ports:
+#      - "3306:3306"
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
